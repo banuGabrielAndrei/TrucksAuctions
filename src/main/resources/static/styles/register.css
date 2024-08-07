@@ -1,0 +1,35 @@
+body {
+    padding-top: 56px; 
+    display: flex;
+    background: #6a11cb;
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1)); 
+    height: 100vh;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+.content {
+    flex: 1;
+}
+
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 2rem;
+}

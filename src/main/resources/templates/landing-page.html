@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trucks Auctions</title>
+    <link rel="stylesheet" th:href="@{/styles/landingpage.css}">
+</head>
+<body th:style="'background: url(/images/landingPage.jpeg);no-repeat center center fixed; background-size: cover;'">
+    <div class="header">
+        <img th:src="@{images/logoNavbar.jpg}" alt="..."> 
+        <div class="logo">Trucks Auctions</div>
+        <nav>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="card">
+            <h1>Welcome to Trucks Auctions</h1>
+            <p>Your ultimate solution for buying and selling trucks at auction. <a th:href="@{/register}">Join now</a> to get the best deals on trucks from all over Europe.</p>
+            <p>Already registered? <a th:href="@{/login-page}">Sign in</a></p>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2024 Trucks Auctions. All rights reserved.
+    </div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,27 @@
+body {
+    padding-top: 56px;
+    background: #6a11cb; 
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1)); 
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+}
+
+.card {
+    width: 100%;
+    max-width: 400px;
+    margin-top: -56px;
+    backdrop-filter: blur(1px);
+}
