@@ -12,8 +12,8 @@ public class AppController {
         return "landing-page";
     }
 
-    @GetMapping("/auctions")
+    @GetMapping("/trucks")
     public String auctionsPage() {
-        return "auctions";
+        return "trucks";
     }
 }

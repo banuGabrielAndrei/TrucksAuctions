@@ -34,7 +34,7 @@ public class SecurityConfig {
                 .permitAll()
                 .requestMatchers("/", "/register", "/login", 
                 "login-page", "/user/register", "landing-page").permitAll()
-                .requestMatchers("/auctions").authenticated()
+                .requestMatchers("/trucks").authenticated()
                 .requestMatchers("/auctions/init")
                 .hasAuthority("ROLE_ADMIN")
                 .anyRequest().authenticated())
@@ -42,7 +42,7 @@ public class SecurityConfig {
                 .loginPage("/login-page").permitAll()
                 .loginProcessingUrl("/login")
                 .usernameParameter("email")
-                .defaultSuccessUrl("/auctions")
+                .defaultSuccessUrl("/trucks")
                 .failureUrl("/login-page?error=true")
                 .permitAll())
         .logout(logout -> logout

@@ -22,7 +22,7 @@ public class UsersServiceImpl implements UsersService{
             throw new IllegalArgumentException("This email is already used!");
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole("ROLE_USER");
+        user.setRole("USER");
         usersRepository.save(user);
     }
 
