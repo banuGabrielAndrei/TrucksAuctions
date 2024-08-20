@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Trucks Auctions</title>
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" th:href="@{/styles/trucks.css}">
+   </head>
+   <body th:style="'background: url(/images/landingPage.jpeg); no-repeat center center fixed; background-size: cover;'">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+         <a th:href="@{/trucks}">
+         <img th:src="@{images/logoNavbar.jpg}" alt="..."> 
+         </a>
+         <a class="navbar-brand" href="#">Trucks Auction</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item">
+                  <span class="nav-link">Hello, <span sec:authentication="name"></span></span>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Auctions</a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+      <div class="container" title="Below you can save your truck in the app">
+         <form id="truckForm" method="post" role="form" th:action="@{/trucks/save}" th:object="${truck}">
+            <div class="row">
+               <div class="col-md-6 mb-3">
+                  <label for="owner" class="form-label">Owner / Company</label>
+                  <input type="text" class="form-control" id="owner" placeholder="Owner / Company" th:field="*{owner}" required>
+               </div>
+               <div class="col-md-6 mb-3">
+                  <label for="manufacturer" class="form-label">Manufacturer</label>
+                  <input type="text" class="form-control" id="manufacturer" placeholder="Manufacturer" th:field="*{manufacturer}" required>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-4 mb-3">
+                  <label for="year" class="form-label">Year</label>
+                  <input type="number" class="form-control" id="year" placeholder="Year" th:field="*{year}" required>
+               </div>
+               <div class="col-md-4 mb-3">
+                  <label for="color" class="form-label">Color</label>
+                  <input type="text" class="form-control" id="color" placeholder="Color" th:field="*{color}" required>
+               </div>
+               <div class="col-md-4 mb-3">
+                  <label for="price" class="form-label">Price</label>
+                  <input type="number" class="form-control" id="price" placeholder="Price €" th:field="*{price}" required>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6 mb-3">
+                  <label for="type" class="form-label">Type</label>
+                  <input type="text" class="form-control" id="type" placeholder="Type" th:field="*{type}">
+               </div>
+               <div class="col-md-6 mb-3">
+                  <label for="type" class="form-label">Description</label>
+                   <textarea class="form-control" id="description" rows="3" placeholder="Truck description" th:field="*{description}"></textarea>
+               </div>
+               <div class="col-md-6 mb-3">
+                  <label for="engineType" class="form-label">Engine Type</label>
+                  <input type="text" class="form-control" id="engineType" placeholder="Engine Type" th:field="*{engineType}">
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6 mb-3">
+                  <label for="mileage" class="form-label">Mileage</label>
+                  <input type="number" class="form-control" id="mileage" placeholder="Mileage" th:field="*{mileage}">
+               </div>
+               <div class="col-md-6 mb-3">
+                  <label for="hp" class="form-label">HP (Horsepower)</label>
+                  <input type="number" class="form-control" id="hp" placeholder="HP (Horsepower)" th:field="*{hp}">
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6 mb-3">
+                  <label for="transmission" class="form-label">Transmission</label>
+                  <input type="text" class="form-control" id="transmission" placeholder="Transmission" th:field="*{transmission}">
+               </div>
+               <div class="col-md-6 mb-3">
+                  <label for="retarder" class="form-label">Retarder</label>
+                  <input type="text" class="form-control" id="retarder" placeholder="Retarder" th:field="*{retarder}">
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6 mb-3">
+                  <label for="climateControl" class="form-label">Climate Control</label>
+                  <input type="text" class="form-control" id="climateControl" placeholder="Climate Control" th:field="*{climateControl}">
+               </div>
+               <div class="col-md-6 mb-3">
+                  <label for="stationaryAC" class="form-label">Stationary AC</label>
+                  <input type="text" class="form-control" id="stationaryAC" placeholder="Stationary AC" th:field="*{stationaryAC}">
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6 mb-3">
+                  <label for="auxiliaryHeater" class="form-label">Auxiliary Heater</label>
+                  <input type="text" class="form-control" id="auxiliaryHeater" placeholder="Auxiliary Heater" th:field="*{auxiliaryHeater}">
+               </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Truck</button>
+      </div>
+      </form>
+      </div>
+      <footer class="footer">
+         <div class="footer">
+            <span class="text-muted">© 2024 Trucks Auctions. All rights reserved.</span>
+         </div>
+      </footer>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script type="text/javascript" th:src="@{/JS/prices.js}"></script>
+   </body>
+</html>

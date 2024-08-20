@@ -45,8 +45,7 @@ public class UsersServiceTest {
 
     @Test
     public void testSaveUser_Success() {
-    UserEntity user = new UserEntity(null, "Andrei",
-     "user1@gmail.com", "abcd", "ROLE_ADMIN");
+    UserEntity user = new UserEntity();
     when(usersRepository.save(any(UserEntity.class))).thenReturn(user);
 
     UserEntity savedUser = usersRepository.save(user);
@@ -57,8 +56,7 @@ public class UsersServiceTest {
 
     @Test
     public void testSaveUser_DuplicateEmail() {
-        UserEntity user = new UserEntity(null, "Andrei",
-     "user1@gmail.com", "abcd", "ROLE_ADMIN");
+        UserEntity user = new UserEntity();
         doThrow(DataIntegrityViolationException.class).
         when(usersRepository).save(any(UserEntity.class));
         assertThrows(DataIntegrityViolationException.class, () -> {

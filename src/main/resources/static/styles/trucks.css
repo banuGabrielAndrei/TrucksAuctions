@@ -13,7 +13,6 @@ nav img {
 .footer {
     background-color: #343a40;
     color: #fff;
-    padding: 15px;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -30,5 +29,4 @@ nav img {
     -webkit-backdrop-filter: blur(1px);
     border-radius: 10px;
     padding: 20px;
-   
 }

@@ -34,7 +34,8 @@ public class SecurityConfig {
                 .permitAll()
                 .requestMatchers("/", "/register", "/login", 
                 "login-page", "/user/register", "landing-page").permitAll()
-                .requestMatchers("/trucks").authenticated()
+                .requestMatchers("/trucks", "/add-trcuks",
+                "/trucks/save").authenticated()
                 .requestMatchers("/auctions/init")
                 .hasAuthority("ROLE_ADMIN")
                 .anyRequest().authenticated())
