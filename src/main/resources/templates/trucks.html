@@ -35,53 +35,50 @@
         <div class="col-md-12 mt-4">
           <div class="input-group mb-3">
             <a th:href="@{/add-trucks}" class="btn btn-primary" role="button">Here you can add your truck</a>
-            <input type="text" class="form-control" placeholder="Search for trucks..." aria-label="Search for trucks" aria-describedby="button-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-            </div>
           </div>
         </div>
       </div>
       <div class="row filter-section">
         <div class="col-md-3">
           <h5>Filters</h5>
-          <form>
+          <form th:action="@{/trucks}" method="get">
             <div class="form-group">
               <label for="manufacturer">Manufacturer</label>
-              <select class="form-control" id="manufacturer">
+              <select class="form-control" id="manufacturer" name="manufacturer">
+                <option value="">All</option>
+                <option th:each="manufacturer : ${manufacturers}" th:value="${manufacturer}" th:text="${manufacturer}"></option>
               </select>
             </div>
             <div class="form-group">
-              <label for="model">Color</label>
-              <select class="form-control" id="color">
+              <label for="color">Color</label>
+              <select class="form-control" id="color" name="color">
+                <option value="">All</option>
+                <option th:each="color : ${colors}" th:value="${color}" th:text="${color}"></option>
               </select>
             </div>
             <div class="form-group">
               <label for="year">Year</label>
-              <select class="form-control" id="year">
+              <select class="form-control" id="year" name="year">
+                <option value="">All</option>
+                <option th:each="year : ${years}" th:value="${year}" th:text="${year}"></option>
               </select>
-            </div>
-            <div class="form-group">
-              <label for="price">Price Range</label>
-              <div class="slider-container">
-                <input type="range" class="form-control-range" id="price" min="10000" max="1000000" step="500" value="500">
-                <span id="price-value" class="slider-value">10000€</span>
-              </div>
             </div>
             <button type="submit" class="btn btn-primary">Apply Filters</button>
           </form>
         </div>
         <div class="col-md-9">
           <h5>Truck Listings</h5>
-          <div class="card mb-3">
+          <div th:if="${trucks.isEmpty()}">
+            <p>No trucks available.</p>
+          </div>
+          <div th:each="truck : ${trucks}" class="card mb-3">
             <div class="row no-gutters">
-              <div class="col-md-4">
-              </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Truck Title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <h5 class="card-title" >Manufacturer: <span th:text="${truck.manufacturer}"></span></h5>
+                  <p class="card-text" >Type: <span th:text="${truck.type}"></span></p>
+                  <p class="card-text" >Color: <span th:text="${truck.color}"></span></p>
+                  <p class="card-text">Price: <span th:text="${truck.price} + '&euro;'">€10000</span></small></p>
                 </div>
               </div>
             </div>
