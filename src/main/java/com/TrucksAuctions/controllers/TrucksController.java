@@ -26,15 +26,6 @@ public class TrucksController {
             @RequestParam(required = false) String color,
             @RequestParam(required = false) Integer year,
             Model model) {
-        if (manufacturer == null || manufacturer.isEmpty()) {
-            manufacturer = null;
-        }
-        if (color == null || color.isEmpty()) {
-            color = null;
-        }
-        if (year == null || year == 0) {
-            year = null;
-        }
         List<Truck> filteredTrucks = trucksService.findTrucksByFilters
                                                     (manufacturer, color, year);
         List<String> manufacturers = trucksService.findTrucksByManufacturer();
